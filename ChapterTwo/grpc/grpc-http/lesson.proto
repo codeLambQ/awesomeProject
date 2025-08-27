@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+package main;
+option go_package = "./main";
+
+import "google/api/annotations.proto";
+
+message Lesson {
+  int32 id = 1;
+  string name = 2;
+  float rating = 3;
+}
+
+message LessonId {
+  int32 id = 1;
+}
+
+service LessonService {
+  rpc GetLesson (LessonId) returns (Lesson) {
+    option (google.api.http) = {
+      get: "/getLesson/{id}"
+    };
+  }
+}
