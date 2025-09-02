@@ -1,0 +1,151 @@
+# Generated with protoc-gen-openapi
+# https://github.com/google/gnostic/tree/master/cmd/protoc-gen-openapi
+
+openapi: 3.0.3
+info:
+    title: ArticleService API
+    version: 0.0.1
+paths:
+    /v1/article:
+        get:
+            tags:
+                - ArticleService
+            operationId: ArticleService_ListArticle
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/article.v1.ListArticleReplay'
+        post:
+            tags:
+                - ArticleService
+            operationId: ArticleService_CreateArticle
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/article.v1.CreateArticleRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/article.v1.CreateArticleReplay'
+    /v1/article/{id}:
+        get:
+            tags:
+                - ArticleService
+            operationId: ArticleService_GetArticle
+            parameters:
+                - name: id
+                  in: path
+                  required: true
+                  schema:
+                    type: string
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/article.v1.GetArticleReplay'
+        put:
+            tags:
+                - ArticleService
+            operationId: ArticleService_UpdateArticle
+            parameters:
+                - name: id
+                  in: path
+                  required: true
+                  schema:
+                    type: string
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            $ref: '#/components/schemas/article.v1.UpdateArticleRequest'
+                required: true
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/article.v1.UpdateArticleReplay'
+        delete:
+            tags:
+                - ArticleService
+            operationId: ArticleService_DeleteArticle
+            parameters:
+                - name: id
+                  in: path
+                  required: true
+                  schema:
+                    type: string
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/article.v1.DeleteArticleReplay'
+components:
+    schemas:
+        article.v1.Article:
+            type: object
+            properties:
+                id:
+                    type: string
+                title:
+                    type: string
+                content:
+                    type: string
+                like:
+                    type: string
+        article.v1.CreateArticleReplay:
+            type: object
+            properties:
+                article:
+                    $ref: '#/components/schemas/article.v1.Article'
+        article.v1.CreateArticleRequest:
+            type: object
+            properties:
+                title:
+                    type: string
+                content:
+                    type: string
+        article.v1.DeleteArticleReplay:
+            type: object
+            properties: {}
+        article.v1.GetArticleReplay:
+            type: object
+            properties:
+                article:
+                    $ref: '#/components/schemas/article.v1.Article'
+        article.v1.ListArticleReplay:
+            type: object
+            properties:
+                articleList:
+                    type: array
+                    items:
+                        $ref: '#/components/schemas/article.v1.Article'
+        article.v1.UpdateArticleReplay:
+            type: object
+            properties:
+                article:
+                    $ref: '#/components/schemas/article.v1.Article'
+        article.v1.UpdateArticleRequest:
+            type: object
+            properties:
+                id:
+                    type: string
+                title:
+                    type: string
+                content:
+                    type: string
+tags:
+    - name: ArticleService
