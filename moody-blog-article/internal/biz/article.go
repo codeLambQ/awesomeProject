@@ -15,7 +15,7 @@ type Article struct {
 	Like       int64
 }
 type ArticleRepo interface {
-	CreateArticle(ctx context.Context, article *Article) (*Article, error)
+	CreateArticle(ctx context.Context, article *Article) error
 	UpdateArticle(ctx context.Context, id int64, article *Article) (*Article, error)
 	DeleteArticle(ctx context.Context, id int64) error
 	GetArticleById(ctx context.Context, id int64) (*Article, error)
@@ -34,8 +34,8 @@ func NewArticleUsecase(repo ArticleRepo, logger log.Logger) *ArticleUsecase {
 	return &ArticleUsecase{repo: repo}
 }
 
-func (uc *ArticleUsecase) Create(ctx context.Context, article *Article) (art *Article, err error) {
-	art, err = uc.repo.CreateArticle(ctx, article)
+func (uc *ArticleUsecase) Create(ctx context.Context, article *Article) (err error) {
+	err = uc.repo.CreateArticle(ctx, article)
 	if err != nil {
 		return
 	}
