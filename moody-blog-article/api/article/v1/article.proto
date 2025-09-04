@@ -5,36 +5,36 @@ option go_package = "moody-blog-article/api/article/v1;v1";
 
 import "google/api/annotations.proto";
 
-service ArticleService {
-  rpc CreateArticle (CreateArticleRequest) returns (CreateArticleReplay) {
-    option (google.api.http) = {
-      post: "/v1/article"
+service ArticleService{
+  rpc CreateArticle(CreateArticleRequest) returns (CreateArticleReplay){
+    option(google.api.http) = {
+      post :"/v1/article"
       body: "*"
     };
   }
 
-  rpc UpdateArticle (UpdateArticleRequest) returns (UpdateArticleReplay) {
-    option (google.api.http) = {
-      put: "/v1/article/{id}"
+  rpc UpdateArticle(UpdateArticleRequest) returns (UpdateArticleReplay){
+    option(google.api.http) = {
+      put :"/v1/article{id}"
       body: "*"
     };
   }
 
-  rpc DeleteArticle (DeleteArticleRequest) returns (DeleteArticleReplay) {
-    option (google.api.http) = {
-      delete: "/v1/article/{id}"
+  rpc DeleteArticle(DeleteArticleRequest) returns (DeleteArticleReplay){
+    option(google.api.http) = {
+      delete :"/v1/article/{id}"
     };
   }
 
-  rpc GetArticle (GetArticleRequest) returns (GetArticleReplay) {
-    option (google.api.http) = {
-      get: "/v1/article/{id}"
+  rpc GetArticle(GetArticleRequest) returns (GetArticleReplay){
+    option(google.api.http) = {
+      get :"/v1/article/{id}"
     };
   }
 
-  rpc ListArticle (ListArticleRequest) returns (ListArticleReplay) {
-    option (google.api.http) = {
-      get: "/v1/article"
+  rpc ListArticle(ListArticleRequest) returns (ListArticleReplay){
+    option(google.api.http) = {
+      get :"/v1/article"
     };
   }
 }
@@ -51,40 +51,40 @@ message CreateArticleRequest {
   string content = 2;
 }
 
-message CreateArticleReplay {
-  Article article = 1;
+message CreateArticleReplay{
+  Article Article = 1;
 }
 
-message UpdateArticleRequest {
+message UpdateArticleRequest{
   int64 id = 1;
   string title = 2;
   string content = 3;
 }
 
-message UpdateArticleReplay {
-  Article article = 1;
+message UpdateArticleReplay{
+  Article Article = 1;
 }
 
-message DeleteArticleRequest {
+message DeleteArticleRequest{
   int64 id = 1;
 }
 
-message DeleteArticleReplay {
+message DeleteArticleReplay{
 
 }
 
-message GetArticleRequest {
+message GetArticleRequest{
   int64 id = 1;
 }
 
-message GetArticleReplay {
-  Article article = 1;
+message GetArticleReplay{
+  Article Article = 1;
 }
 
 message ListArticleRequest{
 
 }
 
-message ListArticleReplay {
-  repeated Article articleList = 1;
+message ListArticleReplay{
+  repeated Article listArticle = 1;
 }

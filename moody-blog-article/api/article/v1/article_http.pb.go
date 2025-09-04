@@ -36,7 +36,7 @@ type ArticleServiceHTTPServer interface {
 func RegisterArticleServiceHTTPServer(s *http.Server, srv ArticleServiceHTTPServer) {
 	r := s.Route("/")
 	r.POST("/v1/article", _ArticleService_CreateArticle0_HTTP_Handler(srv))
-	r.PUT("/v1/article/{id}", _ArticleService_UpdateArticle0_HTTP_Handler(srv))
+	r.PUT("/v1/article{id}", _ArticleService_UpdateArticle0_HTTP_Handler(srv))
 	r.DELETE("/v1/article/{id}", _ArticleService_DeleteArticle0_HTTP_Handler(srv))
 	r.GET("/v1/article/{id}", _ArticleService_GetArticle0_HTTP_Handler(srv))
 	r.GET("/v1/article", _ArticleService_ListArticle0_HTTP_Handler(srv))
@@ -222,7 +222,7 @@ func (c *ArticleServiceHTTPClientImpl) ListArticle(ctx context.Context, in *List
 
 func (c *ArticleServiceHTTPClientImpl) UpdateArticle(ctx context.Context, in *UpdateArticleRequest, opts ...http.CallOption) (*UpdateArticleReplay, error) {
 	var out UpdateArticleReplay
-	pattern := "/v1/article/{id}"
+	pattern := "/v1/article{id}"
 	path := binding.EncodeURL(pattern, in, false)
 	opts = append(opts, http.Operation(OperationArticleServiceUpdateArticle))
 	opts = append(opts, http.PathTemplate(pattern))

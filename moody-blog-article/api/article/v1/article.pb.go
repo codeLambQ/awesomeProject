@@ -144,7 +144,7 @@ func (x *CreateArticleRequest) GetContent() string {
 
 type CreateArticleReplay struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Article       *Article               `protobuf:"bytes,1,opt,name=article,proto3" json:"article,omitempty"`
+	Article       *Article               `protobuf:"bytes,1,opt,name=Article,proto3" json:"Article,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -248,7 +248,7 @@ func (x *UpdateArticleRequest) GetContent() string {
 
 type UpdateArticleReplay struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Article       *Article               `protobuf:"bytes,1,opt,name=article,proto3" json:"article,omitempty"`
+	Article       *Article               `protobuf:"bytes,1,opt,name=Article,proto3" json:"Article,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -416,7 +416,7 @@ func (x *GetArticleRequest) GetId() int64 {
 
 type GetArticleReplay struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	Article       *Article               `protobuf:"bytes,1,opt,name=article,proto3" json:"article,omitempty"`
+	Article       *Article               `protobuf:"bytes,1,opt,name=Article,proto3" json:"Article,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -496,7 +496,7 @@ func (*ListArticleRequest) Descriptor() ([]byte, []int) {
 
 type ListArticleReplay struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
-	ArticleList   []*Article             `protobuf:"bytes,1,rep,name=articleList,proto3" json:"articleList,omitempty"`
+	ListArticle   []*Article             `protobuf:"bytes,1,rep,name=listArticle,proto3" json:"listArticle,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -531,9 +531,9 @@ func (*ListArticleReplay) Descriptor() ([]byte, []int) {
 	return file_article_v1_article_proto_rawDescGZIP(), []int{10}
 }
 
-func (x *ListArticleReplay) GetArticleList() []*Article {
+func (x *ListArticleReplay) GetListArticle() []*Article {
 	if x != nil {
-		return x.ArticleList
+		return x.ListArticle
 	}
 	return nil
 }
@@ -553,26 +553,26 @@ const file_article_v1_article_proto_rawDesc = "" +
 	"\x05title\x18\x01 \x01(\tR\x05title\x12\x18\n" +
 	"\acontent\x18\x02 \x01(\tR\acontent\"D\n" +
 	"\x13CreateArticleReplay\x12-\n" +
-	"\aarticle\x18\x01 \x01(\v2\x13.article.v1.ArticleR\aarticle\"V\n" +
+	"\aArticle\x18\x01 \x01(\v2\x13.article.v1.ArticleR\aArticle\"V\n" +
 	"\x14UpdateArticleRequest\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\x03R\x02id\x12\x14\n" +
 	"\x05title\x18\x02 \x01(\tR\x05title\x12\x18\n" +
 	"\acontent\x18\x03 \x01(\tR\acontent\"D\n" +
 	"\x13UpdateArticleReplay\x12-\n" +
-	"\aarticle\x18\x01 \x01(\v2\x13.article.v1.ArticleR\aarticle\"&\n" +
+	"\aArticle\x18\x01 \x01(\v2\x13.article.v1.ArticleR\aArticle\"&\n" +
 	"\x14DeleteArticleRequest\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\x03R\x02id\"\x15\n" +
 	"\x13DeleteArticleReplay\"#\n" +
 	"\x11GetArticleRequest\x12\x0e\n" +
 	"\x02id\x18\x01 \x01(\x03R\x02id\"A\n" +
 	"\x10GetArticleReplay\x12-\n" +
-	"\aarticle\x18\x01 \x01(\v2\x13.article.v1.ArticleR\aarticle\"\x14\n" +
+	"\aArticle\x18\x01 \x01(\v2\x13.article.v1.ArticleR\aArticle\"\x14\n" +
 	"\x12ListArticleRequest\"J\n" +
 	"\x11ListArticleReplay\x125\n" +
-	"\varticleList\x18\x01 \x03(\v2\x13.article.v1.ArticleR\varticleList2\xa3\x04\n" +
+	"\vlistArticle\x18\x01 \x03(\v2\x13.article.v1.ArticleR\vlistArticle2\xa2\x04\n" +
 	"\x0eArticleService\x12j\n" +
-	"\rCreateArticle\x12 .article.v1.CreateArticleRequest\x1a\x1f.article.v1.CreateArticleReplay\"\x16\x82\xd3\xe4\x93\x02\x10:\x01*\"\v/v1/article\x12o\n" +
-	"\rUpdateArticle\x12 .article.v1.UpdateArticleRequest\x1a\x1f.article.v1.UpdateArticleReplay\"\x1b\x82\xd3\xe4\x93\x02\x15:\x01*\x1a\x10/v1/article/{id}\x12l\n" +
+	"\rCreateArticle\x12 .article.v1.CreateArticleRequest\x1a\x1f.article.v1.CreateArticleReplay\"\x16\x82\xd3\xe4\x93\x02\x10:\x01*\"\v/v1/article\x12n\n" +
+	"\rUpdateArticle\x12 .article.v1.UpdateArticleRequest\x1a\x1f.article.v1.UpdateArticleReplay\"\x1a\x82\xd3\xe4\x93\x02\x14:\x01*\x1a\x0f/v1/article{id}\x12l\n" +
 	"\rDeleteArticle\x12 .article.v1.DeleteArticleRequest\x1a\x1f.article.v1.DeleteArticleReplay\"\x18\x82\xd3\xe4\x93\x02\x12*\x10/v1/article/{id}\x12c\n" +
 	"\n" +
 	"GetArticle\x12\x1d.article.v1.GetArticleRequest\x1a\x1c.article.v1.GetArticleReplay\"\x18\x82\xd3\xe4\x93\x02\x12\x12\x10/v1/article/{id}\x12a\n" +
@@ -605,10 +605,10 @@ var file_article_v1_article_proto_goTypes = []any{
 	(*ListArticleReplay)(nil),    // 10: article.v1.ListArticleReplay
 }
 var file_article_v1_article_proto_depIdxs = []int32{
-	0,  // 0: article.v1.CreateArticleReplay.article:type_name -> article.v1.Article
-	0,  // 1: article.v1.UpdateArticleReplay.article:type_name -> article.v1.Article
-	0,  // 2: article.v1.GetArticleReplay.article:type_name -> article.v1.Article
-	0,  // 3: article.v1.ListArticleReplay.articleList:type_name -> article.v1.Article
+	0,  // 0: article.v1.CreateArticleReplay.Article:type_name -> article.v1.Article
+	0,  // 1: article.v1.UpdateArticleReplay.Article:type_name -> article.v1.Article
+	0,  // 2: article.v1.GetArticleReplay.Article:type_name -> article.v1.Article
+	0,  // 3: article.v1.ListArticleReplay.listArticle:type_name -> article.v1.Article
 	1,  // 4: article.v1.ArticleService.CreateArticle:input_type -> article.v1.CreateArticleRequest
 	3,  // 5: article.v1.ArticleService.UpdateArticle:input_type -> article.v1.UpdateArticleRequest
 	5,  // 6: article.v1.ArticleService.DeleteArticle:input_type -> article.v1.DeleteArticleRequest

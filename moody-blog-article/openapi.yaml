@@ -53,6 +53,24 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/article.v1.GetArticleReplay'
+        delete:
+            tags:
+                - ArticleService
+            operationId: ArticleService_DeleteArticle
+            parameters:
+                - name: id
+                  in: path
+                  required: true
+                  schema:
+                    type: string
+            responses:
+                "200":
+                    description: OK
+                    content:
+                        application/json:
+                            schema:
+                                $ref: '#/components/schemas/article.v1.DeleteArticleReplay'
+    /v1/article{id}:
         put:
             tags:
                 - ArticleService
@@ -76,23 +94,6 @@ paths:
                         application/json:
                             schema:
                                 $ref: '#/components/schemas/article.v1.UpdateArticleReplay'
-        delete:
-            tags:
-                - ArticleService
-            operationId: ArticleService_DeleteArticle
-            parameters:
-                - name: id
-                  in: path
-                  required: true
-                  schema:
-                    type: string
-            responses:
-                "200":
-                    description: OK
-                    content:
-                        application/json:
-                            schema:
-                                $ref: '#/components/schemas/article.v1.DeleteArticleReplay'
 components:
     schemas:
         article.v1.Article:
@@ -109,7 +110,7 @@ components:
         article.v1.CreateArticleReplay:
             type: object
             properties:
-                article:
+                Article:
                     $ref: '#/components/schemas/article.v1.Article'
         article.v1.CreateArticleRequest:
             type: object
@@ -124,19 +125,19 @@ components:
         article.v1.GetArticleReplay:
             type: object
             properties:
-                article:
+                Article:
                     $ref: '#/components/schemas/article.v1.Article'
         article.v1.ListArticleReplay:
             type: object
             properties:
-                articleList:
+                listArticle:
                     type: array
                     items:
                         $ref: '#/components/schemas/article.v1.Article'
         article.v1.UpdateArticleReplay:
             type: object
             properties:
-                article:
+                Article:
                     $ref: '#/components/schemas/article.v1.Article'
         article.v1.UpdateArticleRequest:
             type: object
